@@ -1,0 +1,96 @@
+body{
+	background-color: rgb(40,40,40);
+}
+p{
+	padding: 0;
+}
+button{
+	font-family: Calibri;
+	font-size: 16;
+	text-align: center;
+	margin-bottom: 5px;
+	margin-left: 0px;
+	width: 160px;
+	text-shadow: 2px 2px #C0C0FF;  /* Made the buttons have text shadows as well */
+}
+ul{
+	list-style-type:none;
+	padding-left:0;
+}
+/*Classes*/
+.startGame{
+	display: block;
+}
+.mainGame{
+	visibility: hidden;
+}
+.resources{
+	font-family: Verdana;
+	padding: 0px;
+	overflow: hidden;
+	width: 484px;
+	height: auto;
+	background-color: lightblue;
+	border: 1px solid black;
+	padding-left: 4px;
+	margin-bottom: 5px;
+	/*text-shadow: 2px 2px #C0C0C0;*/
+}
+.player{
+	font-family: Verdana;
+	padding: 0px;
+	overflow: hidden;
+	width: 484px;
+	height: auto;
+	background-color: rgb(156,204,101);
+	border: 1px solid black;
+	padding-left: 4px;
+	margin-bottom: 5px;
+	/*text-shadow: 2px 2px #C0C0C0;*/
+}
+/*IDs*/
+#pauseButton{
+	visibility: hidden;
+}
+#progbarActivitiesBack{
+	width: 489px;
+	background-color: rgb(200,200,200);
+}
+#progbarActivities{
+	font-family: Verdana;
+	height: 20px; 
+	background-color: rgb(50,200,50); 
+	text-align: left; 
+	line-height: 20px; 
+	color: black;
+	visibility: hidden;
+}
+#buttonContainer{
+	padding-left:3px;
+	height:auto;
+	display:inline-block;
+	width:488px;
+}
+#activitiesExplore{
+	float:left;
+	width:33%;
+}
+#activitiesPlayer{
+	display:inline-block;
+	width:33%;
+}
+#options{
+	float:right;
+	width:34%;
+}
+#health,#hunger,#activity,#food,#wood,#metal,#slash{
+	float: right;
+	padding-right: 4px;
+	/*text-shadow: 2px 2px #C0C0FF;*/
+}
+#healthstorage,#hungerstorage,#foodstorage,#woodstorage,#metalstorage{
+	float: right;
+	padding-right: 4px;
+	/*text-shadow: 2px 2px #C0C0FF;*/
+	font-size: 12;
+}
