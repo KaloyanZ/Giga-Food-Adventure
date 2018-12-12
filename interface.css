@@ -18,9 +18,6 @@ ul{
 	padding-left:0;
 }
 /*Classes*/
-.startGame{
-	display: block;
-}
 .mainGame{
 	visibility: hidden;
 }
@@ -36,7 +33,36 @@ ul{
 	margin-bottom: 5px;
 	/*text-shadow: 2px 2px #C0C0C0;*/
 }
-.player{
+.alertBox{
+	font-family: Verdana;
+    padding: 4px;
+    background-color: #ffffff;
+	width: 481px;
+    color: black;
+	font-size: 12px;
+	margin-top: 10px;
+	height: auto;
+}
+/*IDs*/
+#introText{
+    font-family: Verdana;
+    font-size: 14;
+    background-color: rgb(156,204,101);
+    padding: 5px;
+    width: 484px;
+    line-height: 1.5;
+    border: 1px solid black;
+}
+#startGame{
+	display: block;
+}
+#startButton{
+    display: none;
+}
+#introNextButton{
+    display: block;
+}
+#player{
 	font-family: Verdana;
 	padding: 0px;
 	overflow: hidden;
@@ -48,7 +74,6 @@ ul{
 	margin-bottom: 5px;
 	/*text-shadow: 2px 2px #C0C0C0;*/
 }
-/*IDs*/
 #pauseButton{
 	visibility: hidden;
 }
@@ -83,12 +108,12 @@ ul{
 	float:right;
 	width:34%;
 }
-#health,#hunger,#activity,#food,#wood,#metal,#slash{
+#level,#experience,#health,#hunger,#activity,#food,#wood,#metal,#slash{
 	float: right;
 	padding-right: 4px;
 	/*text-shadow: 2px 2px #C0C0FF;*/
 }
-#healthstorage,#hungerstorage,#foodstorage,#woodstorage,#metalstorage{
+#experiencestorage,#healthstorage,#hungerstorage,#foodstorage,#woodstorage,#metalstorage{
 	float: right;
 	padding-right: 4px;
 	/*text-shadow: 2px 2px #C0C0FF;*/

@@ -1,19 +1,22 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="interface.css" />
-	
 </head>
 <body>
 	<!-- Text -->
 	<div class="startGame" id="startGame">
 		<button id="startButton" onClick="start_game()">Start Game!</button>
+        <button id="introNextButton" onClick="intro_text()">Next</button>
 		<button id="pauseButton" onClick="pause_game()">UNPAUSE</button>
+        <div id="introText">...</div>
 	</div>
 	
 	<div class="mainGame" id="mainGame">
-		<div class="player">
+		<div class="player" id="player">
 			<ul>
-				<li>Health: <span id="healthstorage">0</span><span id="slash"> / </span><span id="health">0</span><br/></li>
+				<li>Level: <span id="level">0</span><br/></li>
+                <li>Experience: <span id="experiencestorage">0</span><span id="slash"> / </span><span id="experience">0</span><br/></li>
+                <li>Health: <span id="healthstorage">0</span><span id="slash"> / </span><span id="health">0</span><br/></li>
 				<li>Hunger: <span id="hungerstorage">0</span><span id="slash"> / </span><span id="hunger">0</span><br/></li>
 				<li>Activity: <span id="activity">0</span><br/></li>
 			</ul>
@@ -31,6 +34,11 @@
 			<div id="progbarActivitiesBack">
 			<div id="progbarActivities">0%</div>
 			</div>
+		</div>
+		
+		<div class="alertBox" id="alertText">
+			<!--<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> -->
+			<div>Welcome to Giga Food Adventure!</div>
 		</div>
 		
 		<div id="buttonContainer">

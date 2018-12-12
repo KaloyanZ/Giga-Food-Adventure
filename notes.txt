@@ -1,0 +1,29 @@
+NOTES:
+
+Craftable Upgrades:
+	Storage:
+		Hunger: Breathing Exercises, Mana-Infused Stomach Lining 
+		Food: Passive Cooler, Refrigerator
+		Wood: Lumber Stockpile, Lumber Cross-Stacking Techniques
+		Metal: 
+	Efficiency:
+		Hunger: Campfire, Furnace
+		Food: Improved Traps, Herblore
+		Wood: Wooden Hatchet, Metal Hatchet
+	Speed: 
+		Hunger: Sharpened Canines, Iron Jaw
+		Food: Campfire, Cooking Utensils
+		Wood: Boreal Scouting, Root Sense
+		Metal: Wooden Pickaxe, Metal Pickaxe
+		
+Player Stats:
+	Health:
+	Mana:
+		Used to craft hunger storage upgrades
+	
+Game Mechanics: 
+	Chance to fail activity and take health damage
+	Rest to regain health but at the cost of hunger
+	Stoke Campfire once built
+	Experience gained from completing activities
+		Used to learn techniques
