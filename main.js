@@ -90,7 +90,8 @@ var global = {
 
 var intro_text_progress = 0;
 var intro_div = document.getElementById("introText");
-function intro_text(){
+function intro_text() 
+{
     switch(intro_text_progress){
         case 0:
             intro_div.innerHTML += "<br><br>...";

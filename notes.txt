@@ -27,3 +27,11 @@ Game Mechanics:
 	Stoke Campfire once built
 	Experience gained from completing activities
 		Used to learn techniques
+    Raided by enemies and they steal stuff
+
+Story:
+    Moon, other planets, rocket ship
+    Corruption
+    Big Bad guy who was once your ally
+        He got corrupt
+    
