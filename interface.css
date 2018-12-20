@@ -1,121 +1,236 @@
 body{
 	background-color: rgb(40,40,40);
 }
+
 p{
 	padding: 0;
 }
+
 button{
 	font-family: Calibri;
 	font-size: 16;
 	text-align: center;
 	margin-bottom: 5px;
 	margin-left: 0px;
-	width: 160px;
-	text-shadow: 2px 2px #C0C0FF;  /* Made the buttons have text shadows as well */
+    width:200px;
+	/*text-shadow: 1px 1px #C0C0FF;  /* Made the buttons have text shadows as well */
 }
+
 ul{
 	list-style-type:none;
 	padding-left:0;
 }
+
+@keyframes fadeEffect {
+  from {opacity: 0.2;}
+  to {opacity: 1;}
+}
+
 /*Classes*/
-.mainGame{
+.mainGame {
+    width: 100%;
+    display:inline-block;
 	visibility: hidden;
 }
-.resources{
-	font-family: Verdana;
-	padding: 0px;
-	overflow: hidden;
-	width: 484px;
-	height: auto;
-	background-color: lightblue;
-	border: 1px solid black;
-	padding-left: 4px;
-	margin-bottom: 5px;
-	/*text-shadow: 2px 2px #C0C0C0;*/
-}
+
+
+
 .alertBox{
 	font-family: Verdana;
-    padding: 4px;
+    text-indent: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     background-color: #ffffff;
-	width: 481px;
+	width: 600px;
     color: black;
 	font-size: 12px;
 	margin-top: 10px;
 	height: auto;
 }
+
+.tagHeader {
+    font-family: Verdana;
+    display: inline-block;
+    font-size: 12;
+    color: aliceblue;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid azure;
+    font-stretch: expanded;
+    
+}
+
+.tablinks {
+    margin-top: 5px;
+}
+
+.tab button {
+  background-color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 2px 0px;
+  transition: 0.3s;
+}
+
+
+
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #666;
+}
+
+.tabcontent {
+  animation: fadeEffect 0.5s;
+}
+
+
+
+
 /*IDs*/
 #introText{
     font-family: Verdana;
     font-size: 14;
     background-color: rgb(156,204,101);
     padding: 5px;
-    width: 484px;
+    width: 600px;
     line-height: 1.5;
     border: 1px solid black;
 }
+
 #startGame{
 	display: block;
 }
+
 #startButton{
     display: none;
 }
+
 #introNextButton{
     display: block;
 }
-#player{
+
+#playerLevel{
 	font-family: Verdana;
 	padding: 0px;
 	overflow: hidden;
-	width: 484px;
-	height: auto;
-	background-color: rgb(156,204,101);
+	width: 600px;
+	height: 90px;
+	background-color: rgb(140,204,101);
 	border: 1px solid black;
-	padding-left: 4px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	/*text-shadow: 2px 2px #C0C0C0;*/
 }
+
+#playerStats{
+    display:inline-block;
+	font-family: Verdana;
+	overflow: hidden;
+	width: 296px;
+	height: 90px;
+	background-color: rgb(220,50,50);
+	border: 1px solid white;
+	text-indent: 0px;
+	margin-bottom: 0px;
+	/*text-shadow: 2px 2px #C0C0C0;*/
+}
+
+#resources{
+    display:inline-block;
+	font-family: Verdana;
+	padding: 0px;
+	overflow: hidden;
+	width: 296px;
+	height: 90px;
+	background-color: rgb(20,200,250);
+    border: 1px solid white;
+	/*border: 1px solid black;*/
+	margin-bottom: 0px;
+	/*text-shadow: 2px 2px #C0C0C0;*/
+}
+
 #pauseButton{
 	visibility: hidden;
 }
+
 #progbarActivitiesBack{
-	width: 489px;
+	width: 600px;
 	background-color: rgb(200,200,200);
 }
+
 #progbarActivities{
 	font-family: Verdana;
-	height: 20px; 
+	height: 20px;
+    margin-top: 5px;
 	background-color: rgb(50,200,50); 
-	text-align: left; 
+	text-align: left;
+    text-indent: 5px;
 	line-height: 20px; 
 	color: black;
 	visibility: hidden;
 }
-#buttonContainer{
-	padding-left:3px;
+
+#buttonContainerActivities,#buttonContainerUpgrades{
+	text-indent:3px;
 	height:auto;
 	display:inline-block;
-	width:488px;
+	width:600px;
 }
-#activitiesExplore{
+
+#activitiesExplore,#upgradesStorage{
 	float:left;
-	width:33%;
+	width:200px;
 }
-#activitiesPlayer{
+
+#activitiesPlayer,#upgradesEfficiency{
 	display:inline-block;
-	width:33%;
+	width:200px;
 }
-#options{
-	float:right;
-	width:34%;
-}
-#level,#experience,#health,#hunger,#activity,#food,#wood,#metal,#slash{
+
+#level,#experience,#health,#mana,#hunger,#activity,#food,#wood,#metal,#slash{
 	float: right;
-	padding-right: 4px;
+    padding-right:4px;
 	/*text-shadow: 2px 2px #C0C0FF;*/
 }
-#experiencestorage,#healthstorage,#hungerstorage,#foodstorage,#woodstorage,#metalstorage{
+
+#experiencestorage,#healthstorage,#manastorage,#hungerstorage,#foodstorage,#woodstorage,#metalstorage{
 	float: right;
-	padding-right: 4px;
+    padding-right: 4px;
 	/*text-shadow: 2px 2px #C0C0FF;*/
 	font-size: 12;
+}
+
+#upgradesSpeed {
+    float:right;
+    width:194px;
+}
+
+
+
+
+
+
+
+#tagHeaderStorage {
+    background-color: rgb(80,20,10);
+    width: 198px;
+}
+
+#tagHeaderEfficiency {
+    background-color: rgb(20,80,10);
+    width: 198px;
+}
+
+#tagHeaderSpeed {
+    background-color: rgb(20,20,120);
+    width: 198px;
+}
+
+#lefttext {
+    text-indent: 4px;
 }

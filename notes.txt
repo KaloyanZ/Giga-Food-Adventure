@@ -5,11 +5,12 @@ Craftable Upgrades:
 		Hunger: Breathing Exercises, Mana-Infused Stomach Lining 
 		Food: Passive Cooler, Refrigerator
 		Wood: Lumber Stockpile, Lumber Cross-Stacking Techniques
-		Metal: 
+		Metal: Wooden Chest, Metal Container
 	Efficiency:
-		Hunger: Campfire, Furnace
+		Hunger: Culinary Techniques, Furnace
 		Food: Improved Traps, Herblore
 		Wood: Wooden Hatchet, Metal Hatchet
+        Metal: Smelting Techniques, 
 	Speed: 
 		Hunger: Sharpened Canines, Iron Jaw
 		Food: Campfire, Cooking Utensils
@@ -34,4 +35,5 @@ Story:
     Corruption
     Big Bad guy who was once your ally
         He got corrupt
-    
+    Found ancient relic to "ascend" through a ritual
+    Ally failed the ritual and was corrupted

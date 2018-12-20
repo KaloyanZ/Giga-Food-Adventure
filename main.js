@@ -51,6 +51,10 @@ var global = {
 			amount: 10,
 			storage: 10
 		},
+        mana: {
+            amount: 0,
+            storage: 5
+        },
 		hunger: {
 			name: "Hunger",
 			amount: 100,
@@ -87,6 +91,8 @@ var global = {
     },
 	timer_interval: 200
 }
+
+document.getElementById("defaultOpen").click();
 
 var intro_text_progress = 0;
 var intro_div = document.getElementById("introText");
@@ -165,6 +171,8 @@ function init()
     p.experience.storage = p.experience.required_array[p.level.amount];
 	p.health.amount = 10;
 	p.health.storage = 10;
+    p.mana.amount = 0;
+    p.mana.storage = 5;
 	p.hunger.amount = 100;
 	p.hunger.storage = 100;
 	p.busy = false;
@@ -189,6 +197,8 @@ function init()
     document.getElementById("experiencestorage").innerHTML = prettify(global.player.experience.storage);
 	document.getElementById("health").innerHTML = prettify(global.player.health.amount);
 	document.getElementById("healthstorage").innerHTML = prettify(global.player.health.storage);
+    document.getElementById("mana").innerHTML = prettify(global.player.mana.amount);
+	document.getElementById("manastorage").innerHTML = prettify(global.player.mana.storage);
 	document.getElementById("hunger").innerHTML = prettify(global.player.hunger.amount);
 	document.getElementById("hungerstorage").innerHTML = prettify(global.player.hunger.storage);
 	document.getElementById("activity").innerHTML = global.player.activity;
@@ -426,8 +436,8 @@ function level_up()
     global.player.level.amount++;
     global.player.experience.amount -= global.player.experience.storage;
     global.player.experience.storage = global.player.experience.required_array[global.player.level.amount];
-    var ele = document.getElementById("player");
-    var original_color = "rgb(156,204,101)";
+    var ele = document.getElementById("playerLevel");
+    var original_color = "rgb(140,204,101)";
     console.log(original_color);
     html_update("experience");
     var level_up_visual = window.setInterval(
@@ -444,6 +454,23 @@ function level_up()
                 global.html_vars.level_up_flash.amount = 0;
             }
         }, global.html_vars.level_up_flash.timer);
+}
+
+
+
+function open_tab(evt, tabName)
+{
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i=0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTaget.className += " active";
 }
 
 function html_update(what)

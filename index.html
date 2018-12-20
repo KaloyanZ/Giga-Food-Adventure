@@ -8,25 +8,32 @@
 		<button id="startButton" onClick="start_game()">Start Game!</button>
         <button id="introNextButton" onClick="intro_text()">Next</button>
 		<button id="pauseButton" onClick="pause_game()">UNPAUSE</button>
+        <button onClick="global.player.experience.amount += 10">EXP+10</button>
         <div id="introText">...</div>
 	</div>
 	
 	<div class="mainGame" id="mainGame">
-		<div class="player" id="player">
-			<ul>
-				<li>Level: <span id="level">0</span><br/></li>
-                <li>Experience: <span id="experiencestorage">0</span><span id="slash"> / </span><span id="experience">0</span><br/></li>
-                <li>Health: <span id="healthstorage">0</span><span id="slash"> / </span><span id="health">0</span><br/></li>
-				<li>Hunger: <span id="hungerstorage">0</span><span id="slash"> / </span><span id="hunger">0</span><br/></li>
-				<li>Activity: <span id="activity">0</span><br/></li>
+		<div class="player" id="playerLevel">
+            <ul id="levelNexp">
+                <li id="lefttext">Level: <span id="level">0</span><br/></li>
+                <li id="lefttext">Experience: <span id="experiencestorage">0</span><span id="slash">/</span><span id="experience">0</span><br/></li>
+                <li id="lefttext">Activity: <span id="activity">0</span><br/></li>
+            </ul>
+        </div>
+        
+        <div class="player" id="playerStats">
+            <ul>
+                <li id="lefttext">Health: <span id="healthstorage">0</span><span id="slash">/</span><span id="health">0</span><br/></li>
+                <li id="lefttext">Mana: <span id="manastorage">0</span><span id="slash">/</span><span id="mana">0</span><br/></li>
+				<li id="lefttext">Hunger: <span id="hungerstorage">0</span><span id="slash">/</span><span id="hunger">0</span><br/></li>
 			</ul>
 		</div>
 
-		<div class="resources">
+		<div class="resources" id="resources">
 			<ul>
-				<li>Food: <span id="foodstorage">3</span><span id="slash"> / </span><span id="food">0</span><br/></li>
-				<li>Wood: <span id="woodstorage">3</span><span id="slash"> / </span><span id="wood">0</span><br/></li>
-				<li>Metal: <span id="metalstorage">3</span><span id="slash"> / </span><span id="metal">0</span><br/></li>
+				<li id="lefttext">Food: <span id="foodstorage">3</span><span id="slash">/</span><span id="food">0</span><br/></li>
+				<li id="lefttext">Wood: <span id="woodstorage">3</span><span id="slash">/</span><span id="wood">0</span><br/></li>
+				<li id="lefttext">Metal: <span id="metalstorage">3</span><span id="slash">/</span><span id="metal">0</span><br/></li>
 			</ul>
 		</div>
 		
@@ -41,46 +48,71 @@
 			<div>Welcome to Giga Food Adventure!</div>
 		</div>
 		
-		<div id="buttonContainer">
-			<!-- Activity Buttons -->
-			<div id="activitiesExplore">
-				<ul>
-					<li><button onClick="set_out('Foraging for Food')">Forage for Food</button></li>
-					<li><button onClick="set_out('Foraging for Wood')">Forage for Wood</button></li>
-					<li><button onClick="set_out('Foraging for Metal')">Forage for Metal</button></li>
-				</ul>
-			</div>
-			
-			<div id="activitiesPlayer">
-				<ul>
-					<li><button onClick="set_out('Eating Food')">Eat Food</button></li>
-				</ul>
-			</div>
-			<!-- Upgrade Buttons -->
-			<!--
-			<div id="upgrades">
-				<ul>
-					<li><button id="cursorUpgrade1" onClick="buyUpgrade(upgrades.cursorUpgrade1.name)">Reinforced Fingers</button></li>
-					<li><button id="cursorUpgrade2" onClick="buyUpgrade(upgrades.cursorUpgrade2.name)">Ambidextrous</button></li>
-					<li><button id="factoryUpgrade1" onClick="buyUpgrade(upgrades.factoryUpgrade1.name)">Safety Regulations</button></li>
-					<li><button id="factoryUpgrade2" onClick="buyUpgrade(upgrades.factoryUpgrade2.name)">Conveyor Belts</button></li>
-					<li><button id="mineUpgrade1" onClick="buyUpgrade(upgrades.mineUpgrade1.name)">Chocolate Pickaxes</button></li>
-					<li><button id="mineUpgrade2" onClick="buyUpgrade(upgrades.mineUpgrade2.name)">Chocolate Drills</button></li>
-				</ul>
-			</div>
-			-->
-			<!-- Save/Load Buttons -->
-			<!--
-			<div id="options">
-				<ul>	
-					<li><button onClick="save()" id="save">Save Game</button></li>
-					<li><button onClick="load()" id="load">Load Game</button></li>
-					<li><button onClick="deleteSave()" id="saveDelete">Delete Save</button></li>
-					<li><button onClick="debugClick()">Debug Button!</button></li>
-				</ul>
-			</div>
-			-->
-		</div>
+        
+        <div class="tab" id="buttonTabContainer">
+            <button class="tablinks" id="defaultOpen" onclick="open_tab(event, 'buttonContainerActivities')">Activities</button>
+            <button class="tablinks" onclick="open_tab(event, 'buttonContainerUpgrades')">Upgrades</button>
+            <button class="tablinks" id="tabButton" onclick="open_tab(event, 'buttonContainerTravel')">Travel</button>
+        </div>
+            
+
+        <div class="tabcontent" id="buttonContainerActivities">
+            <div id="activitiesExplore">
+                <ul>
+                    <li><button onClick="set_out('Foraging for Food')">Forage for Food</button></li>
+                    <li><button onClick="set_out('Foraging for Wood')">Forage for Wood</button></li>
+                    <li><button onClick="set_out('Foraging for Metal')">Forage for Metal</button></li>
+                </ul>
+            </div>
+
+            <div id="activitiesPlayer">
+                <ul>
+                    <li><button onClick="set_out('Eating Food')">Eat Food</button></li>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+        <div class="tabcontent" class="tab" id="buttonContainerUpgrades">
+            <div id="upgradesStorage">
+                <div class="tagHeader" id="tagHeaderStorage">Storage</div>
+                <ul>
+                    <li><button onClick="">Breathing Exercises</button></li>
+                    <li><button onClick="">Passive Cooler</button></li>
+                    <li><button onClick="">Lumber Stockpile</button></li>
+                    <li><button onClick="">Wooden Chest</button></li>
+                </ul>
+            </div>
+
+            <div id="upgradesEfficiency">
+                <div class="tagHeader" id="tagHeaderEfficiency">Efficiency</div>
+                <ul>
+                    <li><button onClick="">Culinary Techniques</button></li>
+                    <li><button onClick="">Improved Traps</button></li>
+                    <li><button onClick="">Wooden Hatchet</button></li>
+                    <li><button onClick="">Smelting Techniques</button></li>
+                </ul>
+            </div>
+
+            <div id="upgradesSpeed">
+                <div class="tagHeader" id="tagHeaderSpeed">Speed</div>
+                <ul>
+                    <li><button onClick="">Sharpened Canines</button></li>
+                    <li><button onClick="">Campfire</button></li>
+                    <li><button onClick="">Boreal Scouting</button></li>
+                    <li><button onClick="">Wooden Pickaxe</button></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="tabcontent" id="buttonContainerTravel">
+        </div>
+
+        
 	</div>
 	<!-- file to get the js code from -->
 	<script type="text/javascript" src="main.js"></script>
