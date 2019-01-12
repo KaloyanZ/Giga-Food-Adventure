@@ -37,3 +37,6 @@ Story:
         He got corrupt
     Found ancient relic to "ascend" through a ritual
     Ally failed the ritual and was corrupted
+    
+Misc:
+    Dictionary with keys and values (apple, red)

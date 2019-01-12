@@ -1,14 +1,16 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="interface.css" />
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
 </head>
 <body>
 	<!-- Text -->
 	<div class="startGame" id="startGame">
 		<button id="startButton" onClick="start_game()">Start Game!</button>
-        <button id="introNextButton" onClick="intro_text()">Next</button>
+        <button id="storyNextButton" onClick="story()">Next</button>
 		<button id="pauseButton" onClick="pause_game()">UNPAUSE</button>
-        <div id="introText">...</div>
+        <button onClick="cheat_button()">CHEAT</button>
+        <div id="story">...</div>
 	</div>
 	
 	<div class="mainGame" id="mainGame">
@@ -23,7 +25,7 @@
         <div class="player" id="playerStats">
             <ul>
                 <li id="lefttext">Health: <span id="healthstorage">0</span><span id="slash">/</span><span id="health">0</span><br/></li>
-                <li id="lefttext">Mana: <span id="manastorage">0</span><span id="slash">/</span><span id="mana">0</span><br/></li>
+                <li id="lefttext">Energy: <span id="energystorage">0</span><span id="slash">/</span><span id="energy">0</span><br/></li>
 				<li id="lefttext">Hunger: <span id="hungerstorage">0</span><span id="slash">/</span><span id="hunger">0</span><br/></li>
 			</ul>
 		</div>
@@ -49,24 +51,25 @@
 		
         
         <div class="tab" id="buttonTabContainer">
-            <button class="tablinks" id="defaultOpen" onclick="open_tab(event, 'buttonContainerActivities')">Activities</button>
-            <button class="tablinks" onclick="open_tab(event, 'buttonContainerUpgrades')">Upgrades</button>
-            <button class="tablinks" id="tabButton" onclick="open_tab(event, 'buttonContainerTravel')">Travel</button>
+            <button class="tablinks" idt="tabButtonActivities" id="defaultOpen" onclick="open_tab(event, 'buttonContainerActivities')">Activities</button>
+            <button class="tablinks" idt="tabButtonUpgrades" id="tabButton" onclick="open_tab(event, 'buttonContainerUpgrades')">Upgrades</button>
+            <button class="tablinks" idt="tabButtonTravel" id="tabButton" onclick="open_tab(event, 'buttonContainerTravel')">Travel</button>
         </div>
             
 
         <div class="tabcontent" id="buttonContainerActivities">
             <div id="activitiesExplore">
                 <ul>
-                    <li><button onClick="set_out('Foraging for Food')">Forage for Food</button></li>
-                    <li><button onClick="set_out('Foraging for Wood')">Forage for Wood</button></li>
-                    <li><button onClick="set_out('Foraging for Metal')">Forage for Metal</button></li>
+                    <li><button tooltipid="gl.tooltips.foraging_food" onClick="set_out('Foraging for Food')">Forage for Food</button></li>
+                    <li><button tooltipid="gl.tooltips.foraging_wood" onClick="set_out('Foraging for Wood')">Forage for Wood</button></li>
+                    <li><button tooltipid="gl.tooltips.foraging_metal" onClick="set_out('Foraging for Metal')">Forage for Metal</button></li>
                 </ul>
             </div>
 
             <div id="activitiesPlayer">
                 <ul>
-                    <li><button onClick="set_out('Eating Food')">Eat Food</button></li>
+                    <li><button tooltipid="gl.tooltips.eating_food" onClick="set_out('Eating Food')">Eat Food</button></li>
+                    <li><button tooltipid="gl.tooltips.resting" onClick="set_out('Resting')">Rest</button></li>
                 </ul>
             </div>
 
@@ -78,30 +81,30 @@
             <div id="upgradesStorage">
                 <div class="tagHeader" id="tagHeaderStorage">Storage</div>
                 <ul>
-                    <li><button onClick="">Breathing Exercises</button></li>
-                    <li><button onClick="">Passive Cooler</button></li>
-                    <li><button onClick="">Lumber Stockpile</button></li>
-                    <li><button onClick="">Wooden Chest</button></li>
+                    <li><button id="gl.upgrades.hunger_storage_01" tooltipid="gl.tooltips.breathing_exercises" onClick="buy_upgrade('gl.upgrades.hunger_storage_01')">Breathing Exercises</button></li>
+                    <li><button id="gl.upgrades.food_storage_01" tooltipid="gl.tooltips.passive_cooler" onClick="buy_upgrade('gl.upgrades.food_storage_01')">Passive Cooler</button></li>
+                    <li><button id="gl.upgrades.wood_storage_01" tooltipid="gl.tooltips.lumber_stockpile" onClick="buy_upgrade('gl.upgrades.wood_storage_01')">Lumber Stockpile</button></li>
+                    <li><button id="gl.upgrades.metal_storage_01" tooltipid="gl.tooltips.wooden_chest" onClick="buy_upgrade('gl.upgrades.metal_storage_01')">Wooden Chest</button></li>
                 </ul>
             </div>
 
             <div id="upgradesEfficiency">
                 <div class="tagHeader" id="tagHeaderEfficiency">Efficiency</div>
                 <ul>
-                    <li><button onClick="">Culinary Techniques</button></li>
-                    <li><button onClick="">Improved Traps</button></li>
-                    <li><button onClick="">Wooden Hatchet</button></li>
-                    <li><button onClick="">Smelting Techniques</button></li>
+                    <li><button id="gl.upgrades.hunger_efficiency_01" tooltipid="gl.tooltips.culinary_techniques" onClick="buy_upgrade('gl.upgrades.hunger_efficiency_01')">Culinary Techniques</button></li>
+                    <li><button id="gl.upgrades.food_efficiency_01" tooltipid="gl.tooltips.improved_traps" onClick="buy_upgrade('gl.upgrades.food_efficiency_01')">Improved Traps</button></li>
+                    <li><button id="gl.upgrades.wood_efficiency_01" tooltipid="gl.tooltips.wooden_hatchet" onClick="buy_upgrade('gl.upgrades.wood_efficiency_01')">Wooden Hatchet</button></li>
+                    <li><button id="gl.upgrades.metal_efficiency_01" tooltipid="gl.tooltips.smelting_techniques" onClick="buy_upgrade('gl.upgrades.metal_efficiency_01')">Smelting Techniques</button></li>
                 </ul>
             </div>
 
             <div id="upgradesSpeed">
                 <div class="tagHeader" id="tagHeaderSpeed">Speed</div>
                 <ul>
-                    <li><button onClick="">Sharpened Canines</button></li>
-                    <li><button onClick="">Campfire</button></li>
-                    <li><button onClick="">Boreal Scouting</button></li>
-                    <li><button onClick="">Wooden Pickaxe</button></li>
+                    <li><button id="gl.upgrades.hunger_speed_01" tooltipid="gl.tooltips.sharpened_canines" onClick="buy_upgrade('gl.upgrades.hunger_speed_01')">Sharpened Canines</button></li>
+                    <li><button id="gl.upgrades.food_speed_01" tooltipid="gl.tooltips.keen_eyes" onClick="buy_upgrade('gl.upgrades.food_speed_01')">Keen Eyes</button></li>
+                    <li><button id="gl.upgrades.wood_speed_01" tooltipid="gl.tooltips.boreal_scouting" onClick="buy_upgrade('gl.upgrades.wood_speed_01')">Boreal Scouting</button></li>
+                    <li><button id="gl.upgrades.metal_speed_01" tooltipid="gl.tooltips.wooden_pickaxe" onClick="buy_upgrade('gl.upgrades.metal_speed_01')">Wooden Pickaxe</button></li>
                 </ul>
             </div>
         </div>
@@ -115,5 +118,6 @@
 	</div>
 	<!-- file to get the js code from -->
 	<script type="text/javascript" src="main.js"></script>
+    
 </body>
 </html>

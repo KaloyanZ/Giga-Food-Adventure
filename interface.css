@@ -13,6 +13,8 @@ button{
 	margin-bottom: 5px;
 	margin-left: 0px;
     width:200px;
+    background-color: white;
+    
 	/*text-shadow: 1px 1px #C0C0FF;  /* Made the buttons have text shadows as well */
 }
 
@@ -71,11 +73,12 @@ ul{
   outline: none;
   cursor: pointer;
   padding: 2px 0px;
-  transition: 0.3s;
+  /*transition: 2.3s;*/
 }
 
-
-
+#tabButtonActivities,#tabButtonUpgrades,#tabButtonTravel {
+    display: inline-block;
+}
 
 .tab button:hover {
   background-color: #ddd;
@@ -91,9 +94,47 @@ ul{
 
 
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
 
 /*IDs*/
-#introText{
+#story{
     font-family: Verdana;
     font-size: 14;
     background-color: rgb(156,204,101);
@@ -111,7 +152,7 @@ ul{
     display: none;
 }
 
-#introNextButton{
+#storyNextButton{
     display: block;
 }
 
@@ -156,6 +197,7 @@ ul{
 
 #pauseButton{
 	visibility: hidden;
+    background-color: white;
 }
 
 #progbarActivitiesBack{
@@ -167,12 +209,13 @@ ul{
 	font-family: Verdana;
 	height: 20px;
     margin-top: 5px;
-	background-color: rgb(50,200,50); 
+	background-color: rgb(50,150,255); 
 	text-align: left;
     text-indent: 5px;
 	line-height: 20px; 
 	color: black;
 	visibility: hidden;
+    transition: width 0.1s ease;
 }
 
 #buttonContainerActivities,#buttonContainerUpgrades{
@@ -192,13 +235,13 @@ ul{
 	width:200px;
 }
 
-#level,#experience,#health,#mana,#hunger,#activity,#food,#wood,#metal,#slash{
+#level,#experience,#health,#energy,#hunger,#activity,#food,#wood,#metal,#slash{
 	float: right;
     padding-right:4px;
 	/*text-shadow: 2px 2px #C0C0FF;*/
 }
 
-#experiencestorage,#healthstorage,#manastorage,#hungerstorage,#foodstorage,#woodstorage,#metalstorage{
+#experiencestorage,#healthstorage,#energystorage,#hungerstorage,#foodstorage,#woodstorage,#metalstorage{
 	float: right;
     padding-right: 4px;
 	/*text-shadow: 2px 2px #C0C0FF;*/
@@ -212,7 +255,93 @@ ul{
 
 
 
+[tooltip]{
+    position:relative;
+}
 
+[tooltip]::before {
+    content: "";
+    position: absolute;
+    top:-6px;
+    left:50%;
+    transform: translateX(-50%);
+    border-width: 4px 6px 0 6px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.7) transparent transparent     transparent;
+    z-index: 100;
+    opacity:0;
+}
+
+[tooltip]::after {
+    content: attr(tooltip);
+    position: absolute;
+    left:50%;
+    top:-6px;
+    transform: translateX(-50%)   translateY(-100%);
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+    color: #fff;
+    padding:4px 2px;
+    font-size: 12px;
+    min-width: 200px;
+    border-radius: 5px;
+    pointer-events: none;
+    opacity:0;
+    word-wrap: normal;
+    white-space: pre;
+}
+
+[tooltip-position='left']::before{
+  left:0%;
+  top:50%;
+  margin-left:-12px;
+  transform:translatey(-50%) rotate(-90deg) 
+}
+
+[tooltip-position='top']::before{
+  left:50%;
+}
+
+[tooltip-position='bottom']::before{
+  top:100%;
+  margin-top:8px;
+  transform: translateX(-50%) translatey(-100%) rotate(-180deg)
+}
+
+[tooltip-position='right']::before{
+  left:100%;
+  top:50%;
+  margin-left:1px;
+  transform:translatey(-50%) rotate(90deg)
+}
+
+[tooltip-position='left']::after{
+  left:0%;
+  top:50%;
+  margin-left:-8px;
+  transform: translateX(-100%)   translateY(-50%);
+}
+
+[tooltip-position='top']::after{
+  left:50%;
+}
+
+[tooltip-position='bottom']::after{
+  top:100%;
+  margin-top:8px;
+  transform: translateX(-50%) translateY(0%);
+}
+
+[tooltip-position='right']::after{
+  left:100%;
+  top:50%;
+  margin-left:8px;
+  transform: translateX(0%)   translateY(-50%);
+}
+
+[tooltip]:hover::after,[tooltip]:hover::before {
+    opacity:1;
+}
 
 
 
